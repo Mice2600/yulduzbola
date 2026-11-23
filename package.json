@@ -1,0 +1,22 @@
+{
+  "name": "yulduzbola-site",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "serve": "node tools/serve.mjs dist",
+    "images": "python -I tools/images.py",
+    "pdf": "node tools/pdf.mjs",
+    "shots": "node tools/shots.mjs",
+    "deploy": "node tools/deploy.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "playwright-core": "^1.65.1",
+    "qrcode": "^1.5.4"
+  },
+  "type": "module",
+  "private": true
+}
