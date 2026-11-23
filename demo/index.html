@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <base href="/yulduzbola/demo/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="robots" content="noindex">
+  <title>YulduzBola demo</title>
+  <style>
+    html,body{margin:0;height:100%;background:linear-gradient(135deg,#fff9f0,#fff0fa,#f0f8ff);overflow:hidden}
+    #boot{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;font:700 15px system-ui,sans-serif;color:#FF6B35;transition:opacity .4s}
+    #boot i{font-size:64px;font-style:normal;animation:b 1.2s ease-in-out infinite}
+    @keyframes b{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-16px) rotate(8deg)}}
+  </style>
+</head>
+<body>
+  <div id="boot"><i>⭐</i><span>YulduzBola…</span></div>
+  <script>
+    window.addEventListener('flutter-first-frame',function(){var b=document.getElementById('boot');b.style.opacity=0;setTimeout(function(){b.remove()},450)});
+  </script>
+  <script>
+    // Demo only: first visit starts with a sample family so there is something to play with.
+    (function(){
+      try{
+        var q=new URLSearchParams(location.search), K='flutter.yulduzbola_v2';
+        if(q.get('reset')==='1'){Object.keys(localStorage).filter(function(k){return k.indexOf('flutter.')===0}).forEach(function(k){localStorage.removeItem(k)})}
+        if(localStorage.getItem(K)) { if(q.get('lang')){var o=JSON.parse(JSON.parse(localStorage.getItem(K)));o.language=q.get('lang');localStorage.setItem(K,JSON.stringify(JSON.stringify(o)));} return; }
+        var n=Date.now(),H=36e5,t=new Date().toDateString();
+        var st={profiles:[
+          {id:'aziz',name:'Aziz',age:8,avatar:'🦁',stars:27,xp:270,level:3,totalTasks:0,completedTasks:7,isParent:false,createdAt:n-900*H,streak:3,badges:['first_step','stars_10','stars_25','streak_3'],lastActiveDate:t},
+          {id:'malika',name:'Malika',age:5,avatar:'🦄',stars:14,xp:140,level:2,totalTasks:0,completedTasks:5,isParent:false,createdAt:n-800*H,streak:2,badges:['first_step','stars_10'],lastActiveDate:t},
+          {id:'jasur',name:'Jasur',age:12,avatar:'🚀',stars:52,xp:520,level:4,totalTasks:0,completedTasks:14,isParent:false,createdAt:n-700*H,streak:5,badges:['first_step','clean_hero','stars_10','stars_25','stars_50','streak_3','super_helper'],lastActiveDate:t}],
+          activeProfileId:null,
+          taskCompletions:[
+          {id:'d1',taskId:'sweep',profileId:'aziz',startedAt:n-3*H,completedAt:n-2.8*H,stars:6,timeSpent:410,quality:'fast',status:'approved',qualityRating:'amazing',bonusStars:0,qualityBonus:3,approvedAt:n-2.5*H,parentNote:'Barakalla! 👏',childReaction:'great'},
+          {id:'d2',taskId:'dishes',profileId:'aziz',startedAt:n-1.2*H,completedAt:n-0.9*H,stars:4,timeSpent:780,quality:'normal',status:'waiting_approval',childReaction:'tried',baseStars:4},
+          {id:'d3',taskId:'plants',profileId:'malika',startedAt:n-2*H,completedAt:n-1.9*H,stars:2,timeSpent:240,quality:'fast',status:'approved',qualityRating:'good',bonusStars:0,qualityBonus:0,approvedAt:n-1.5*H,childReaction:'easy'},
+          {id:'d4',taskId:'toys',profileId:'malika',startedAt:n-0.7*H,completedAt:n-0.5*H,stars:2,timeSpent:500,quality:'normal',status:'waiting_approval',childReaction:'easy',baseStars:2},
+          {id:'d5',taskId:'vacuum',profileId:'jasur',startedAt:n-5*H,completedAt:n-4.6*H,stars:7,timeSpent:900,quality:'normal',status:'approved',qualityRating:'amazing',bonusStars:0,qualityBonus:3,approvedAt:n-4*H,childReaction:'great'},
+          {id:'d6',taskId:'laundry',profileId:'jasur',startedAt:n-26*H,completedAt:n-25.5*H,stars:4,timeSpent:700,quality:'normal',status:'approved',qualityRating:'good',bonusStars:0,qualityBonus:0,approvedAt:n-25*H}],
+          customTasks:[],
+          rewards:[{id:'r1',nameKey:'Kino tomosha 🎬',descKey:'',starCost:30,emoji:'🎬'},{id:'r2',nameKey:'Muzqaymoq 🍦',descKey:'',starCost:15,emoji:'🍦'},{id:'r3',nameKey:"O'yin vaqti 🎮",descKey:'',starCost:20,emoji:'🎮'},{id:'r4',nameKey:'Maxsus kechki ovqat 🍕',descKey:'',starCost:25,emoji:'🍕'}],
+          rewardClaims:[],language:q.get('lang')||'uz',parentPin:'1234'};
+        if(q.get('as')) st.activeProfileId=q.get('as');
+        localStorage.setItem(K,JSON.stringify(JSON.stringify(st)));
+        ['aziz','malika','jasur'].forEach(function(id){localStorage.setItem('flutter.yulduzbola_seen_'+id,JSON.stringify(JSON.stringify(id==='aziz'?[]:['d3','d5','d6'])))});
+      }catch(e){}
+    })();
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>

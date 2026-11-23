@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YulduzBola — chores become a game of stars</title>
+<meta name="description" content="A chore game for kids: the child does a task, a parent checks it, and stars turn into rewards. Android, ages 3–14.">
+<link rel="canonical" href="https://mice2600.github.io/yulduzbola/en/">
+<link rel="alternate" hreflang="uz" href="https://mice2600.github.io/yulduzbola/">
+<link rel="alternate" hreflang="ru" href="https://mice2600.github.io/yulduzbola/ru/">
+<link rel="alternate" hreflang="en" href="https://mice2600.github.io/yulduzbola/en/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="YulduzBola — chores become a game of stars">
+<meta property="og:description" content="A chore game for kids: the child does a task, a parent checks it, and stars turn into rewards. Android, ages 3–14.">
+<meta property="og:image" content="https://mice2600.github.io/yulduzbola/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#160D3A">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⭐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Nunito:wght@500;700;800&family=Rubik:wght@600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/yulduzbola/style.css">
+</head>
+<body>
+<header class="nav" id="nav">
+  <a class="logo" href="#top"><span class="logo-star">⭐</span>YulduzBola</a>
+  <nav class="nav-links">
+    <a href="#demo">Try it</a><a href="#parents">Parents</a><a href="#kids">Kids</a><a href="#facts">Status</a><a href="#downloads">PDF</a>
+  </nav>
+  <div class="nav-right">
+    <div class="wallet" id="wallet" title="Your stars" aria-label="Your stars"><span class="wallet-star">⭐</span><b id="walletN">0</b></div>
+    <div class="langs"><a href="/yulduzbola/"  lang="uz" title="O'zbek">UZ</a><a href="/yulduzbola/ru/"  lang="ru" title="Русский">RU</a><a href="/yulduzbola/en/" class="on" aria-current="true" lang="en" title="English">EN</a></div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <picture class="hero-bg"><source media="(max-width: 760px)" srcset="/yulduzbola/img/hero-m.jpg"><img src="/yulduzbola/img/hero.jpg" alt="" fetchpriority="high"></picture>
+  <div class="hero-shade"></div>
+  <div class="hero-stars" id="heroStars" aria-hidden="true"></div>
+  <div class="hero-in">
+    <p class="kicker">A family game for Android</p>
+    <h1>Every chore becomes <em>a star.</em></h1>
+    <p class="lead">YulduzBola turns housework into a game: the child does a task, a parent checks it, and the stars become a real reward.</p>
+    <div class="cta-row">
+      <a class="btn btn-gold" href="#demo">▶ Try it right now</a>
+      <a class="btn btn-ghost" href="/yulduzbola/downloads/yulduzbola-en.pdf" download>Presentation (PDF)</a>
+    </div>
+    <p class="status-chip"><i></i>Android · ages 3–14 · in testing</p>
+  </div>
+  <p class="hand hero-hint">Tap the flying stars to collect them! <span>↗</span></p>
+</section>
+
+<section class="sweep night" id="sweep">
+  <div class="wrap two">
+    <div>
+      <p class="kicker">The game starts here</p>
+      <h2>First, sweep it yourself</h2>
+      <p class="lead">Drag the broom over the picture and clear the dust. Clean work earns stars.</p>
+      <div class="sweep-meter"><span>Cleaned</span><div class="bar"><i id="sweepBar"></i></div><b id="sweepPct">0%</b></div>
+      <button class="btn btn-ghost sm" id="sweepAgain" hidden>↻ Again</button>
+    </div>
+    <div class="sweep-card" id="sweepCard">
+      <img src="/yulduzbola/img/night.jpg" alt="" loading="lazy">
+      <canvas id="sweepCanvas"></canvas>
+      <div class="broom" id="broom" aria-hidden="true">🧹</div>
+      <div class="sweep-done" id="sweepDone" hidden>Clean! +3 stars</div>
+    </div>
+  </div>
+</section>
+
+<section class="how cream" id="how">
+  <div class="wrap">
+    <p class="kicker">How it works</p>
+    <h2>Four steps to a tidy home</h2>
+    <ol class="steps">
+      <li class="step reveal">
+        <div class="step-shot"><div class="phone crop"><div class="phone-body"><div class="phone-screen"><img src="/yulduzbola/img/app/tasks-en.webp" alt="Picks a task" loading="lazy" width="780" height="1824"></div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i></div></div><span class="step-n">1</span></div>
+        <h3>Picks a task</h3><p>8 ready-made tasks matched to age, from sweeping to laundry. Parents can add their own.</p></li>
+      <li class="step reveal">
+        <div class="step-shot"><div class="phone crop"><div class="phone-body"><div class="phone-screen"><img src="/yulduzbola/img/app/task-en.webp" alt="Does it against the clock" loading="lazy" width="780" height="1824"></div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i></div></div><span class="step-n">2</span></div>
+        <h3>Does it against the clock</h3><p>A timer runs. The child finishes, takes a photo and says how it went.</p></li>
+      <li class="step reveal">
+        <div class="step-shot"><div class="phone crop"><div class="phone-body"><div class="phone-screen"><img src="/yulduzbola/img/app/approval-en.webp" alt="A parent checks" loading="lazy" width="780" height="1824"></div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i></div></div><span class="step-n">3</span></div>
+        <h3>A parent checks</h3><p>You rate the quality: bonus stars for great work, and a kind note to try again when it is not done.</p></li>
+      <li class="step reveal">
+        <div class="step-shot"><div class="phone crop"><div class="phone-body"><div class="phone-screen"><img src="/yulduzbola/img/app/approved-en.webp" alt="Stars turn into rewards" loading="lazy" width="780" height="1824"></div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i></div></div><span class="step-n">4</span></div>
+        <h3>Stars turn into rewards</h3><p>Stars add up, badges unlock, and the child asks for the reward they chose.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="demo night" id="demo">
+  <div class="wrap two">
+    <div class="demo-copy">
+      <p class="kicker">Live demo</p>
+      <h2>This is not a picture. It is the app itself.</h2>
+      <p class="lead">The real YulduzBola runs inside this phone: the same code, built for the browser. Aziz, Malika and Jasur are waiting.</p>
+      <ul class="tips">
+        <li><span>🧒</span><p><b>As a child:</b> you are Aziz. Open the tasks and start one.</p></li>
+        <li><span>🔑</span><p><b>As a parent:</b> tap “Parent Login”. The PIN is 1234.</p></li>
+        <li><span>⭐</span><p><b>Two tasks</b> are waiting for approval. Hand out the stars yourself.</p></li>
+      </ul>
+      <div class="cta-row">
+        <button class="btn btn-ghost sm" id="demoReset">↻ Restart the demo</button>
+        <a class="btn btn-ghost sm" href="/yulduzbola/demo/?as=aziz&lang=en#/home" target="_blank" rel="noopener">↗ Open in its own window</a>
+      </div>
+      <p class="fine">The demo keeps its data in your browser. Taking photos is made for the Android app; in the demo you choose a picture file.</p>
+    </div>
+    <div class="demo-stage">
+      <div class="phone live" id="demoPhone"><div class="phone-body">
+        <div class="phone-screen">
+          <img src="/yulduzbola/img/app/home-en.webp" alt="" loading="lazy">
+          <button class="demo-play" id="demoPlay"><span>▶</span>Start the app</button>
+        </div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section class="parents cream" id="parents">
+  <div class="wrap">
+    <div class="two">
+      <div>
+        <p class="kicker">For parents</p>
+        <h2>You give the stars, <em>not the app.</em></h2>
+        <p class="lead">Tapping “done” does not earn stars. Every task comes to you with the time it took, a photo and how the child felt. The panel below counts by the same rules as the app.</p>
+      </div>
+      <figure class="photo tilt-r"><img src="/yulduzbola/img/father.jpg" alt="" loading="lazy"></figure>
+    </div>
+    <div class="calc reveal" id="calc">
+      <div class="calc-controls">
+        <h3>Task</h3>
+        <div class="chips" id="calcTasks"><button data-i="0" class="chip on" style="--c:#FF6B35">🧹 Sweep the floor <b>3⭐</b></button><button data-i="1" class="chip" style="--c:#4D96FF">🍽️ Wash dishes <b>4⭐</b></button><button data-i="2" class="chip" style="--c:#845EC2">🛏️ Make the bed <b>2⭐</b></button><button data-i="3" class="chip" style="--c:#3DBE6C">🌿 Water the plants <b>2⭐</b></button><button data-i="4" class="chip" style="--c:#2BB5AC">🗑️ Take out trash <b>3⭐</b></button><button data-i="5" class="chip" style="--c:#F0679A">🧸 Pick up toys <b>2⭐</b></button><button data-i="6" class="chip" style="--c:#E0A800">🌀 Vacuum clean <b>4⭐</b></button><button data-i="7" class="chip" style="--c:#FF6B35">👕 Fold laundry <b>4⭐</b></button></div>
+        <h3>Quality</h3>
+        <div class="quals" id="calcQ">
+          <button data-q="amazing" style="--c:#3DBE6C">⭐⭐⭐ Amazing</button>
+          <button data-q="good" class="on" style="--c:#4D96FF">⭐⭐ Good</button>
+          <button data-q="needs" style="--c:#E0A800">⭐ Needs more</button>
+          <button data-q="redo" style="--c:#FF6B35">🔄 Try again</button>
+        </div>
+        <h3>Bonus stars</h3>
+        <div class="chips" id="calcB">
+          <button data-b="2" class="chip" style="--c:#E0A800">+2 ⭐ great effort</button>
+          <button data-b="3" class="chip" style="--c:#E0A800">+3 ⭐ did it alone</button>
+          <button data-b="5" class="chip" style="--c:#E0A800">+5 ⭐ helped others</button>
+        </div>
+      </div>
+      <div class="calc-result" id="calcResult">
+        <div class="calc-lines">
+          <p><span>Base</span><b id="cBase">+3 ⭐</b></p>
+          <p id="cQualRow"><span>Quality</span><b id="cQual">0</b></p>
+          <p id="cBonRow"><span>Bonus</span><b id="cBon">0</b></p>
+        </div>
+        <div class="calc-total"><span>The child gets</span><strong id="cTotal">⭐ 3</strong><em id="cXp" data-l="XP">+30 XP</em></div>
+        <p class="calc-redo" id="cRedo" hidden>No stars. The task goes back to the child with your note: “Try a little more!”</p>
+      </div>
+    </div>
+    <div class="feat3">
+      <div class="feat reveal"><span>🔐</span><h3>Locked with a PIN</h3><p>Children cannot give themselves stars. You can change the PIN.</p></div>
+      <div class="feat reveal"><span>✍️</span><h3>Your own tasks and rewards</h3><p>Set a name, stars, time and age. You set the price of each reward: 5 to 100 stars.</p></div>
+      <div class="feat reveal"><span>📊</span><h3>Everything on one screen</h3><p>Who started what, what is waiting, and how many tasks were approved today.</p></div>
+    </div>
+    <div class="panel-shots">
+      <div class="phone sm tl"><div class="phone-body"><div class="phone-screen"><img src="/yulduzbola/img/app/pin-en.webp" alt="" loading="lazy" width="780" height="1824"></div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i></div></div><div class="phone sm"><div class="phone-body"><div class="phone-screen"><img src="/yulduzbola/img/app/parent-en.webp" alt="Parent panel" loading="lazy" width="780" height="1824"></div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i></div></div><div class="phone sm tr"><div class="phone-body"><div class="phone-screen"><img src="/yulduzbola/img/app/approval-en.webp" alt="" loading="lazy" width="780" height="1824"></div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ages lilac" id="ages">
+  <div class="wrap">
+    <p class="kicker">Grows with your child</p>
+    <h2>From 3 to 14, each in their own way.</h2>
+    <p class="lead">Move the age: the tasks and the look of the screen change.</p>
+    <div class="age-ui">
+      <div class="age-left">
+        <label class="age-slider"><span>Age</span><output id="ageOut">8</output>
+          <input type="range" id="age" min="3" max="14" value="8" aria-label="Age"></label>
+        <p class="age-avail" id="ageAvail"></p>
+        <div class="age-tasks" id="ageTasks"><div class="atask" data-min="4" data-max="14" style="--c:#FF6B35">
+          <img src="/yulduzbola/img/tasks/sweep.webp" alt="" loading="lazy"><div><b>Sweep the floor</b><small>3⭐ · 15 min · 4–14 yrs</small></div><i>🔒</i></div><div class="atask" data-min="7" data-max="14" style="--c:#4D96FF">
+          <img src="/yulduzbola/img/tasks/dishes.webp" alt="" loading="lazy"><div><b>Wash dishes</b><small>4⭐ · 20 min · 7–14 yrs</small></div><i>🔒</i></div><div class="atask" data-min="4" data-max="14" style="--c:#845EC2">
+          <img src="/yulduzbola/img/tasks/bed.webp" alt="" loading="lazy"><div><b>Make the bed</b><small>2⭐ · 10 min · 4–14 yrs</small></div><i>🔒</i></div><div class="atask" data-min="3" data-max="14" style="--c:#3DBE6C">
+          <img src="/yulduzbola/img/tasks/plants.webp" alt="" loading="lazy"><div><b>Water the plants</b><small>2⭐ · 10 min · 3–14 yrs</small></div><i>🔒</i></div><div class="atask" data-min="6" data-max="14" style="--c:#2BB5AC">
+          <img src="/yulduzbola/img/tasks/trash.webp" alt="" loading="lazy"><div><b>Take out trash</b><small>3⭐ · 10 min · 6–14 yrs</small></div><i>🔒</i></div><div class="atask" data-min="3" data-max="10" style="--c:#F0679A">
+          <img src="/yulduzbola/img/tasks/toys.webp" alt="" loading="lazy"><div><b>Pick up toys</b><small>2⭐ · 15 min · 3–10 yrs</small></div><i>🔒</i></div><div class="atask" data-min="8" data-max="14" style="--c:#E0A800">
+          <img src="/yulduzbola/img/tasks/vacuum.webp" alt="" loading="lazy"><div><b>Vacuum clean</b><small>4⭐ · 25 min · 8–14 yrs</small></div><i>🔒</i></div><div class="atask" data-min="8" data-max="14" style="--c:#FF6B35">
+          <img src="/yulduzbola/img/tasks/laundry.webp" alt="" loading="lazy"><div><b>Fold laundry</b><small>4⭐ · 20 min · 8–14 yrs</small></div><i>🔒</i></div></div>
+      </div>
+      <div class="age-right">
+        <div class="age-phones" id="agePhones" data-g="2">
+          <div class="phone g g1"><div class="phone-body"><div class="phone-screen"><img src="/yulduzbola/img/app/taskslittle-en.webp" alt="Ages 3–6: big buttons, little text" loading="lazy" width="780" height="1824"></div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i></div></div><div class="phone g g2"><div class="phone-body"><div class="phone-screen"><img src="/yulduzbola/img/app/tasks-en.webp" alt="Ages 7–10: picture cards" loading="lazy" width="780" height="1824"></div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i></div></div><div class="phone g g3"><div class="phone-body"><div class="phone-screen"><img src="/yulduzbola/img/app/hometeen-en.webp" alt="Ages 11–14: a more grown-up look" loading="lazy" width="780" height="1824"></div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i></div></div>
+        </div>
+        <p class="hand age-cap" id="ageCap">Ages 7–10: picture cards</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="kids night" id="kids">
+  <div class="wrap">
+    <div class="two top">
+      <div>
+        <p class="kicker">For kids</p>
+        <h2>16 badges. Can you collect them all?</h2>
+        <p class="lead">Tap a badge to see how to earn it.</p>
+      </div>
+      <figure class="photo tilt-l small"><img src="/yulduzbola/img/girl.jpg" alt="" loading="lazy"></figure>
+    </div>
+    <div class="badges" id="badges"><button class="badge"><span class="b-front"><i>👣</i></span><span class="b-back"><b>First Step</b><small>Complete your first task</small></span></button><button class="badge"><span class="b-front"><i>🧹</i></span><span class="b-back"><b>Cleaning Hero</b><small>Complete 3 cleaning tasks</small></span></button><button class="badge"><span class="b-front"><i>🍽️</i></span><span class="b-back"><b>Kitchen Helper</b><small>Wash dishes 3 times</small></span></button><button class="badge"><span class="b-front"><i>🌱</i></span><span class="b-back"><b>Garden Lover</b><small>Water plants 3 times</small></span></button><button class="badge"><span class="b-front"><i>📦</i></span><span class="b-back"><b>Organizer</b><small>Complete 3 organization tasks</small></span></button><button class="badge"><span class="b-front"><i>🦸</i></span><span class="b-back"><b>Super Helper</b><small>Complete 10 tasks total</small></span></button><button class="badge"><span class="b-front"><i>📅</i></span><span class="b-back"><b>Week Helper</b><small>Be active 7 days in a row</small></span></button><button class="badge"><span class="b-front"><i>🥉</i></span><span class="b-back"><b>10 Stars</b><small>Earn 10 stars</small></span></button><button class="badge"><span class="b-front"><i>🥈</i></span><span class="b-back"><b>25 Stars</b><small>Earn 25 stars</small></span></button><button class="badge"><span class="b-front"><i>🥇</i></span><span class="b-back"><b>Gold Level</b><small>Earn 50 stars</small></span></button><button class="badge"><span class="b-front"><i>💎</i></span><span class="b-back"><b>Diamond Level</b><small>Earn 100 stars</small></span></button><button class="badge"><span class="b-front"><i>🔥</i></span><span class="b-back"><b>3 Day Streak</b><small>Complete tasks 3 days in a row</small></span></button><button class="badge"><span class="b-front"><i>🔥🔥</i></span><span class="b-back"><b>7 Day Streak</b><small>Complete tasks 7 days in a row</small></span></button><button class="badge"><span class="b-front"><i>⚡</i></span><span class="b-back"><b>Lightning!</b><small>Complete tasks 14 days in a row</small></span></button><button class="badge"><span class="b-front"><i>💨</i></span><span class="b-back"><b>Speed Star</b><small>Complete 3 tasks quickly</small></span></button><button class="badge"><span class="b-front"><i>📷</i></span><span class="b-back"><b>Photographer</b><small>Submit photos for 3 tasks</small></span></button></div>
+    <h3 class="ranks-title">More stars, higher rank</h3>
+    <div class="ranks" id="ranks"><div class="rank" data-at="0"><i>⭐</i><b>Newbie</b><small>0+ ⭐</small></div><span class="rank-line"></span><div class="rank" data-at="10"><i>🥉</i><b>Bronze</b><small>10+ ⭐</small></div><span class="rank-line"></span><div class="rank" data-at="25"><i>🥈</i><b>Silver</b><small>25+ ⭐</small></div><span class="rank-line"></span><div class="rank" data-at="50"><i>🥇</i><b>Gold</b><small>50+ ⭐</small></div><span class="rank-line"></span><div class="rank" data-at="100"><i>💎</i><b>Diamond</b><small>100+ ⭐</small></div></div>
+    <div class="feat3 dark">
+      <div class="feat reveal"><span>🔥</span><h3>Day streaks</h3><p>One task a day keeps the flame alive.</p></div>
+      <div class="feat reveal"><span>🏆</span><h3>Family leaderboard</h3><p>A podium, the champion of the week and today's heroes.</p></div>
+      <div class="feat reveal"><span>🚀</span><h3>10 levels</h3><p>Every star gives 10 XP.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="rewards sunset" id="rewards">
+  <div class="wrap two">
+    <div>
+      <p class="kicker">Rewards</p>
+      <h2>Stars turn into real joy.</h2>
+      <p class="lead">Parents decide the rewards: ice cream, a film, game time, anything. Try spending the stars you collected on this page.</p>
+      <div class="shop" id="shop"><div class="reward" data-cost="15"><i>🍦</i><b>Ice cream</b><strong>⭐ 15</strong><button></button></div><div class="reward" data-cost="20"><i>🎮</i><b>Game time</b><strong>⭐ 20</strong><button></button></div><div class="reward" data-cost="25"><i>🍕</i><b>Special dinner</b><strong>⭐ 25</strong><button></button></div><div class="reward" data-cost="30"><i>🎬</i><b>Film night</b><strong>⭐ 30</strong><button></button></div></div>
+      <p class="fine light">Short on stars? Catch stars on the page, sweep, open badges.</p>
+    </div>
+    <div class="rew-photo">
+      <figure class="photo tilt-r"><img src="/yulduzbola/img/teen.jpg" alt="" loading="lazy"></figure>
+      <div class="phone sm over"><div class="phone-body"><div class="phone-screen"><img src="/yulduzbola/img/app/rewards-en.webp" alt="" loading="lazy" width="780" height="1824"></div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="facts cream" id="facts">
+  <div class="wrap">
+    <p class="kicker">Project status</p>
+    <h2>The honest part</h2>
+    <p class="lead">YulduzBola is a young project. What works, what is in testing and what is not there yet is all here.</p>
+    <div class="fact-cols">
+      <div class="fact ok reveal"><h3><i>✓</i>Works today</h3><ul><li>8 tasks, 16 badges, a reward shop, a family leaderboard</li><li>Parent panel: approval, bonuses, custom tasks and rewards</li><li>Three languages: Uzbek, Russian, English</li><li>No sign-up, no ads, no server: the data stays on the phone</li></ul></div>
+      <div class="fact test reveal"><h3><i>◐</i>In testing</h3><ul><li>The Android app is built (22 MB). All 10 screens pass an automated test, but it has not been widely tested on real phones yet.</li><li>Some labels are in Uzbek only for now</li></ul></div>
+      <div class="fact no reveal"><h3><i>○</i>Not yet</h3><ul><li>Not on Google Play</li><li>No iPhone version</li><li>No sync between phones and no notifications: the family shares one device</li></ul></div>
+    </div>
+    <div class="numbers">
+      <div><b>8</b><span>ready tasks</span></div><div><b>16</b><span>badges</span></div><div><b>3</b><span>languages</span></div><div><b>3–14</b><span>ages</span></div><div><b>0</b><span>accounts and ads</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="downloads night" id="downloads">
+  <div class="wrap two">
+    <div>
+      <p class="kicker">Download</p>
+      <h2>Download the presentation</h2>
+      <p class="lead">The whole project in 11 slides, in three languages.</p>
+      <div class="dl-list">
+        <div class="dl main"><b>English</b>
+          <a class="btn btn-gold sm" href="/yulduzbola/downloads/yulduzbola-en.pdf" download>⬇ Full PDF</a>
+          <a class="btn btn-ghost sm" href="/yulduzbola/downloads/yulduzbola-en-light.pdf" download>⬇ Light PDF (under 5 MB)</a></div>
+        <div class="dl"><b>O'zbek</b>
+          <a class="btn btn-ghost sm" href="/yulduzbola/downloads/yulduzbola-uz.pdf" download>⬇ Full PDF</a>
+          <a class="btn btn-ghost sm" href="/yulduzbola/downloads/yulduzbola-uz-light.pdf" download>⬇ Light PDF (under 5 MB)</a></div>
+        <div class="dl"><b>Русский</b>
+          <a class="btn btn-ghost sm" href="/yulduzbola/downloads/yulduzbola-ru.pdf" download>⬇ Full PDF</a>
+          <a class="btn btn-ghost sm" href="/yulduzbola/downloads/yulduzbola-ru-light.pdf" download>⬇ Light PDF (under 5 MB)</a></div>
+      </div>
+      
+    </div>
+    <a class="deck-thumb" href="/yulduzbola/downloads/yulduzbola-en.pdf" target="_blank" rel="noopener"><img src="/yulduzbola/img/deck-en.jpg" alt="Download the presentation" loading="lazy"></a>
+  </div>
+</section>
+
+<section class="final" id="final">
+  <img class="final-bg" src="/yulduzbola/img/night.jpg" alt="" loading="lazy">
+  <div class="final-shade"></div>
+  <div class="final-in">
+    <h2>Tonight, count your stars.</h2>
+    <p class="lead">A tidy home, a proud child, calm parents.</p>
+    <p class="hand fin-count" id="finCount"></p>
+    <a class="btn btn-gold" href="#demo">▶ Try it right now</a>
+    
+  </div>
+</section>
+</main>
+
+<footer class="foot"><span>⭐ YulduzBola · 2026</span><span>The people in the photos were made with AI. The app screens are real.</span></footer>
+<div class="toast" id="toast" hidden></div>
+<script>window.YB={"lang":"en","base":"/yulduzbola/","t":{"sweep_done":"Clean! +3 stars","sweep_hint":"Sweep me!","sweep_progress":"Cleaned","age_avail":"Tasks available: {n} of 8","rew_need":"{n} ⭐ more needed","rew_buy":"Get it","rew_bought":"Request sent! In the app, a parent approves it.","fin_collected":"You collected {n} stars on this page.","calc_redo":"No stars. The task goes back to the child with your note: “Try a little more!”","g1":"Ages 3–6: big buttons, little text","g2":"Ages 7–10: picture cards","g3":"Ages 11–14: a more grown-up look"},"tasks":[{"id":"sweep","key":"taskSweepTitle","emoji":"🧹","stars":3,"time":15,"min":4,"max":14,"color":"#FF6B35","name":"Sweep the floor"},{"id":"dishes","key":"taskDishesTitle","emoji":"🍽️","stars":4,"time":20,"min":7,"max":14,"color":"#4D96FF","name":"Wash dishes"},{"id":"bed","key":"taskBedTitle","emoji":"🛏️","stars":2,"time":10,"min":4,"max":14,"color":"#845EC2","name":"Make the bed"},{"id":"plants","key":"taskPlantsTitle","emoji":"🌿","stars":2,"time":10,"min":3,"max":14,"color":"#3DBE6C","name":"Water the plants"},{"id":"trash","key":"taskTrashTitle","emoji":"🗑️","stars":3,"time":10,"min":6,"max":14,"color":"#2BB5AC","name":"Take out trash"},{"id":"toys","key":"taskToysTitle","emoji":"🧸","stars":2,"time":15,"min":3,"max":10,"color":"#F0679A","name":"Pick up toys"},{"id":"vacuum","key":"taskVacuumTitle","emoji":"🌀","stars":4,"time":25,"min":8,"max":14,"color":"#E0A800","name":"Vacuum clean"},{"id":"laundry","key":"taskLaundryTitle","emoji":"👕","stars":4,"time":20,"min":8,"max":14,"color":"#FF6B35","name":"Fold laundry"}],"ranks":[0,10,25,50,100]};</script>
+<script src="/yulduzbola/app.js" defer></script>
+</body>
+</html>

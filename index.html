@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YulduzBola — uy yumushlari yulduzlar o'yiniga aylanadi</title>
+<meta name="description" content="Bolalar uchun uy yumushlari o'yini: bola vazifani bajaradi, ota-ona tekshiradi, yulduzlar sovg'aga aylanadi. Android, 3–14 yosh.">
+<link rel="canonical" href="https://mice2600.github.io/yulduzbola/">
+<link rel="alternate" hreflang="uz" href="https://mice2600.github.io/yulduzbola/">
+<link rel="alternate" hreflang="ru" href="https://mice2600.github.io/yulduzbola/ru/">
+<link rel="alternate" hreflang="en" href="https://mice2600.github.io/yulduzbola/en/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="YulduzBola — uy yumushlari yulduzlar o'yiniga aylanadi">
+<meta property="og:description" content="Bolalar uchun uy yumushlari o'yini: bola vazifani bajaradi, ota-ona tekshiradi, yulduzlar sovg'aga aylanadi. Android, 3–14 yosh.">
+<meta property="og:image" content="https://mice2600.github.io/yulduzbola/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#160D3A">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⭐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Nunito:wght@500;700;800&family=Rubik:wght@600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/yulduzbola/style.css">
+</head>
+<body>
+<header class="nav" id="nav">
+  <a class="logo" href="#top"><span class="logo-star">⭐</span>YulduzBola</a>
+  <nav class="nav-links">
+    <a href="#demo">Sinab ko‘rish</a><a href="#parents">Ota-onalarga</a><a href="#kids">Bolalarga</a><a href="#facts">Holati</a><a href="#downloads">PDF</a>
+  </nav>
+  <div class="nav-right">
+    <div class="wallet" id="wallet" title="Sizning yulduzlaringiz" aria-label="Sizning yulduzlaringiz"><span class="wallet-star">⭐</span><b id="walletN">0</b></div>
+    <div class="langs"><a href="/yulduzbola/" class="on" aria-current="true" lang="uz" title="O'zbek">UZ</a><a href="/yulduzbola/ru/"  lang="ru" title="Русский">RU</a><a href="/yulduzbola/en/"  lang="en" title="English">EN</a></div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <picture class="hero-bg"><source media="(max-width: 760px)" srcset="/yulduzbola/img/hero-m.jpg"><img src="/yulduzbola/img/hero.jpg" alt="" fetchpriority="high"></picture>
+  <div class="hero-shade"></div>
+  <div class="hero-stars" id="heroStars" aria-hidden="true"></div>
+  <div class="hero-in">
+    <p class="kicker">Android uchun oilaviy o'yin</p>
+    <h1>Har bir yumush — <em>bitta yulduz.</em></h1>
+    <p class="lead">YulduzBola uy yumushlarini o'yinga aylantiradi: bola vazifani bajaradi, ota-ona tekshiradi, yulduzlar esa haqiqiy sovg'aga aylanadi.</p>
+    <div class="cta-row">
+      <a class="btn btn-gold" href="#demo">▶ Hoziroq sinab ko'ring</a>
+      <a class="btn btn-ghost" href="/yulduzbola/downloads/yulduzbola-uz.pdf" download>Taqdimot (PDF)</a>
+    </div>
+    <p class="status-chip"><i></i>Android · 3–14 yosh · sinov bosqichida</p>
+  </div>
+  <p class="hand hero-hint">Uchayotgan yulduzlarni bosing — ularni yig'ing! <span>↗</span></p>
+</section>
+
+<section class="sweep night" id="sweep">
+  <div class="wrap two">
+    <div>
+      <p class="kicker">O'yin shu yerdan boshlanadi</p>
+      <h2>Avval o'zingiz supurib ko'ring</h2>
+      <p class="lead">Supurgini rasm ustida suring va changni tozalang. Toza ish uchun — yulduz.</p>
+      <div class="sweep-meter"><span>Tozalandi</span><div class="bar"><i id="sweepBar"></i></div><b id="sweepPct">0%</b></div>
+      <button class="btn btn-ghost sm" id="sweepAgain" hidden>↻ Yana bir marta</button>
+    </div>
+    <div class="sweep-card" id="sweepCard">
+      <img src="/yulduzbola/img/night.jpg" alt="" loading="lazy">
+      <canvas id="sweepCanvas"></canvas>
+      <div class="broom" id="broom" aria-hidden="true">🧹</div>
+      <div class="sweep-done" id="sweepDone" hidden>Toza! +3 yulduz</div>
+    </div>
+  </div>
+</section>
+
+<section class="how cream" id="how">
+  <div class="wrap">
+    <p class="kicker">Qanday ishlaydi</p>
+    <h2>To'rt qadam — va uy toza</h2>
+    <ol class="steps">
+      <li class="step reveal">
+        <div class="step-shot"><div class="phone crop"><div class="phone-body"><div class="phone-screen"><img src="/yulduzbola/img/app/tasks-uz.webp" alt="Vazifani tanlaydi" loading="lazy" width="780" height="1824"></div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i></div></div><span class="step-n">1</span></div>
+        <h3>Vazifani tanlaydi</h3><p>Yoshiga mos 8 ta tayyor vazifa: supurishdan kir yig'ishgacha. Ota-ona o'z vazifasini ham qo'sha oladi.</p></li>
+      <li class="step reveal">
+        <div class="step-shot"><div class="phone crop"><div class="phone-body"><div class="phone-screen"><img src="/yulduzbola/img/app/task-uz.webp" alt="Bajaradi — vaqt ketdi!" loading="lazy" width="780" height="1824"></div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i></div></div><span class="step-n">2</span></div>
+        <h3>Bajaradi — vaqt ketdi!</h3><p>Taymer ishlaydi. Bola ishni tugatadi, suratga oladi va qanday o'tganini belgilaydi.</p></li>
+      <li class="step reveal">
+        <div class="step-shot"><div class="phone crop"><div class="phone-body"><div class="phone-screen"><img src="/yulduzbola/img/app/approval-uz.webp" alt="Ota-ona tekshiradi" loading="lazy" width="780" height="1824"></div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i></div></div><span class="step-n">3</span></div>
+        <h3>Ota-ona tekshiradi</h3><p>Sifatni siz baholaysiz: a'lo ish uchun qo'shimcha yulduz, chala ish esa iliq izoh bilan qaytadi.</p></li>
+      <li class="step reveal">
+        <div class="step-shot"><div class="phone crop"><div class="phone-body"><div class="phone-screen"><img src="/yulduzbola/img/app/approved-uz.webp" alt="Yulduzlar sovg'aga aylanadi" loading="lazy" width="780" height="1824"></div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i></div></div><span class="step-n">4</span></div>
+        <h3>Yulduzlar sovg'aga aylanadi</h3><p>Yulduzlar yig'iladi, nishonlar ochiladi, bola o'zi tanlagan sovg'ani so'raydi.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="demo night" id="demo">
+  <div class="wrap two">
+    <div class="demo-copy">
+      <p class="kicker">Jonli demo</p>
+      <h2>Bu surat emas. Bu — ilovaning o'zi.</h2>
+      <p class="lead">Telefon ichida haqiqiy YulduzBola ishlayapti — o'sha kod, brauzer uchun yig'ilgan. Aziz, Malika va Jasur sizni kutyapti.</p>
+      <ul class="tips">
+        <li><span>🧒</span><p><b>Bola sifatida:</b> siz — Aziz. Vazifalarni oching va birini boshlang.</p></li>
+        <li><span>🔑</span><p><b>Ota-ona sifatida:</b> «Ota-ona kirishi» tugmasini bosing. PIN-kod — 1234.</p></li>
+        <li><span>⭐</span><p><b>Ikki vazifa</b> tasdiqlashni kutyapti. Yulduzlarni o'zingiz bering.</p></li>
+      </ul>
+      <div class="cta-row">
+        <button class="btn btn-ghost sm" id="demoReset">↻ Demoni qaytadan boshlash</button>
+        <a class="btn btn-ghost sm" href="/yulduzbola/demo/?as=aziz&lang=uz#/home" target="_blank" rel="noopener">↗ Alohida oynada ochish</a>
+      </div>
+      <p class="fine">Demo ma'lumotni brauzeringizda saqlaydi. Suratga olish Android ilovasi uchun mo'ljallangan, demoda rasm fayli tanlanadi.</p>
+    </div>
+    <div class="demo-stage">
+      <div class="phone live" id="demoPhone"><div class="phone-body">
+        <div class="phone-screen">
+          <img src="/yulduzbola/img/app/home-uz.webp" alt="" loading="lazy">
+          <button class="demo-play" id="demoPlay"><span>▶</span>Ilovani ishga tushirish</button>
+        </div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section class="parents cream" id="parents">
+  <div class="wrap">
+    <div class="two">
+      <div>
+        <p class="kicker">Ota-onalar uchun</p>
+        <h2>Yulduzni ilova emas, <em>siz berasiz.</em></h2>
+        <p class="lead">«Tayyor» tugmasini bosish hali yulduz degani emas. Har bir vazifa sizga keladi: sarflangan vaqt, surat va bolaning kayfiyati bilan. Pastdagi panel ilovadagi qoida bo'yicha hisoblaydi.</p>
+      </div>
+      <figure class="photo tilt-r"><img src="/yulduzbola/img/father.jpg" alt="" loading="lazy"></figure>
+    </div>
+    <div class="calc reveal" id="calc">
+      <div class="calc-controls">
+        <h3>Vazifa</h3>
+        <div class="chips" id="calcTasks"><button data-i="0" class="chip on" style="--c:#FF6B35">🧹 Polni supurish <b>3⭐</b></button><button data-i="1" class="chip" style="--c:#4D96FF">🍽️ Idish yuvish <b>4⭐</b></button><button data-i="2" class="chip" style="--c:#845EC2">🛏️ To'shak yig'ish <b>2⭐</b></button><button data-i="3" class="chip" style="--c:#3DBE6C">🌿 O'simliklarni sug'orish <b>2⭐</b></button><button data-i="4" class="chip" style="--c:#2BB5AC">🗑️ Axlat chiqarish <b>3⭐</b></button><button data-i="5" class="chip" style="--c:#F0679A">🧸 O'yinchoqlarni yig'ish <b>2⭐</b></button><button data-i="6" class="chip" style="--c:#E0A800">🌀 Changyutgich tortish <b>4⭐</b></button><button data-i="7" class="chip" style="--c:#FF6B35">👕 Kiyimlarni yig'ish <b>4⭐</b></button></div>
+        <h3>Sifat</h3>
+        <div class="quals" id="calcQ">
+          <button data-q="amazing" style="--c:#3DBE6C">⭐⭐⭐ A'lo</button>
+          <button data-q="good" class="on" style="--c:#4D96FF">⭐⭐ Yaxshi</button>
+          <button data-q="needs" style="--c:#E0A800">⭐ Yana harakat</button>
+          <button data-q="redo" style="--c:#FF6B35">🔄 Qayta urinish</button>
+        </div>
+        <h3>Qo'shimcha yulduz</h3>
+        <div class="chips" id="calcB">
+          <button data-b="2" class="chip" style="--c:#E0A800">+2 ⭐ ajoyib harakat</button>
+          <button data-b="3" class="chip" style="--c:#E0A800">+3 ⭐ mustaqil bajardi</button>
+          <button data-b="5" class="chip" style="--c:#E0A800">+5 ⭐ boshqalarga yordam</button>
+        </div>
+      </div>
+      <div class="calc-result" id="calcResult">
+        <div class="calc-lines">
+          <p><span>Asos</span><b id="cBase">+3 ⭐</b></p>
+          <p id="cQualRow"><span>Sifat</span><b id="cQual">0</b></p>
+          <p id="cBonRow"><span>Bonus</span><b id="cBon">0</b></p>
+        </div>
+        <div class="calc-total"><span>Bola oladi</span><strong id="cTotal">⭐ 3</strong><em id="cXp" data-l="tajriba balli (XP)">+30 tajriba balli (XP)</em></div>
+        <p class="calc-redo" id="cRedo" hidden>Yulduz berilmaydi. Vazifa bolaga izohingiz bilan qaytadi: «Yana bir oz harakat qiling!»</p>
+      </div>
+    </div>
+    <div class="feat3">
+      <div class="feat reveal"><span>🔐</span><h3>PIN-kod bilan himoyalangan</h3><p>Bolalar o'zlariga yulduz yoza olmaydi. PIN-kodni o'zgartirish mumkin.</p></div>
+      <div class="feat reveal"><span>✍️</span><h3>O'z vazifa va sovg'alaringiz</h3><p>Vazifaga nom, yulduz, vaqt va yosh bering. Sovg'a narxini o'zingiz belgilaysiz: 5 dan 100 yulduzgacha.</p></div>
+      <div class="feat reveal"><span>📊</span><h3>Hammasi bitta ekranda</h3><p>Kim nimani boshladi, nima kutyapti, bugun nechta vazifa tasdiqlandi.</p></div>
+    </div>
+    <div class="panel-shots">
+      <div class="phone sm tl"><div class="phone-body"><div class="phone-screen"><img src="/yulduzbola/img/app/pin-uz.webp" alt="" loading="lazy" width="780" height="1824"></div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i></div></div><div class="phone sm"><div class="phone-body"><div class="phone-screen"><img src="/yulduzbola/img/app/parent-uz.webp" alt="Ota-ona paneli" loading="lazy" width="780" height="1824"></div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i></div></div><div class="phone sm tr"><div class="phone-body"><div class="phone-screen"><img src="/yulduzbola/img/app/approval-uz.webp" alt="" loading="lazy" width="780" height="1824"></div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ages lilac" id="ages">
+  <div class="wrap">
+    <p class="kicker">Bola bilan birga o'sadi</p>
+    <h2>3 yoshdan 14 yoshgacha — har biriga o‘zicha.</h2>
+    <p class="lead">Yoshni suring: vazifalar va ekran ko'rinishi o'zgaradi.</p>
+    <div class="age-ui">
+      <div class="age-left">
+        <label class="age-slider"><span>Yosh</span><output id="ageOut">8</output>
+          <input type="range" id="age" min="3" max="14" value="8" aria-label="Yosh"></label>
+        <p class="age-avail" id="ageAvail"></p>
+        <div class="age-tasks" id="ageTasks"><div class="atask" data-min="4" data-max="14" style="--c:#FF6B35">
+          <img src="/yulduzbola/img/tasks/sweep.webp" alt="" loading="lazy"><div><b>Polni supurish</b><small>3⭐ · 15 daq · 4–14 yosh</small></div><i>🔒</i></div><div class="atask" data-min="7" data-max="14" style="--c:#4D96FF">
+          <img src="/yulduzbola/img/tasks/dishes.webp" alt="" loading="lazy"><div><b>Idish yuvish</b><small>4⭐ · 20 daq · 7–14 yosh</small></div><i>🔒</i></div><div class="atask" data-min="4" data-max="14" style="--c:#845EC2">
+          <img src="/yulduzbola/img/tasks/bed.webp" alt="" loading="lazy"><div><b>To'shak yig'ish</b><small>2⭐ · 10 daq · 4–14 yosh</small></div><i>🔒</i></div><div class="atask" data-min="3" data-max="14" style="--c:#3DBE6C">
+          <img src="/yulduzbola/img/tasks/plants.webp" alt="" loading="lazy"><div><b>O'simliklarni sug'orish</b><small>2⭐ · 10 daq · 3–14 yosh</small></div><i>🔒</i></div><div class="atask" data-min="6" data-max="14" style="--c:#2BB5AC">
+          <img src="/yulduzbola/img/tasks/trash.webp" alt="" loading="lazy"><div><b>Axlat chiqarish</b><small>3⭐ · 10 daq · 6–14 yosh</small></div><i>🔒</i></div><div class="atask" data-min="3" data-max="10" style="--c:#F0679A">
+          <img src="/yulduzbola/img/tasks/toys.webp" alt="" loading="lazy"><div><b>O'yinchoqlarni yig'ish</b><small>2⭐ · 15 daq · 3–10 yosh</small></div><i>🔒</i></div><div class="atask" data-min="8" data-max="14" style="--c:#E0A800">
+          <img src="/yulduzbola/img/tasks/vacuum.webp" alt="" loading="lazy"><div><b>Changyutgich tortish</b><small>4⭐ · 25 daq · 8–14 yosh</small></div><i>🔒</i></div><div class="atask" data-min="8" data-max="14" style="--c:#FF6B35">
+          <img src="/yulduzbola/img/tasks/laundry.webp" alt="" loading="lazy"><div><b>Kiyimlarni yig'ish</b><small>4⭐ · 20 daq · 8–14 yosh</small></div><i>🔒</i></div></div>
+      </div>
+      <div class="age-right">
+        <div class="age-phones" id="agePhones" data-g="2">
+          <div class="phone g g1"><div class="phone-body"><div class="phone-screen"><img src="/yulduzbola/img/app/taskslittle-uz.webp" alt="3–6 yosh: katta tugmalar, kam matn" loading="lazy" width="780" height="1824"></div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i></div></div><div class="phone g g2"><div class="phone-body"><div class="phone-screen"><img src="/yulduzbola/img/app/tasks-uz.webp" alt="7–10 yosh: rasmli kartochkalar" loading="lazy" width="780" height="1824"></div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i></div></div><div class="phone g g3"><div class="phone-body"><div class="phone-screen"><img src="/yulduzbola/img/app/hometeen-uz.webp" alt="11–14 yosh: jiddiyroq ranglar" loading="lazy" width="780" height="1824"></div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i></div></div>
+        </div>
+        <p class="hand age-cap" id="ageCap">7–10 yosh: rasmli kartochkalar</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="kids night" id="kids">
+  <div class="wrap">
+    <div class="two top">
+      <div>
+        <p class="kicker">Bolalar uchun</p>
+        <h2>16 ta nishon. Hammasini yig'a olasanmi?</h2>
+        <p class="lead">Nishonni bos — uni qanday olish mumkinligini bilib ol.</p>
+      </div>
+      <figure class="photo tilt-l small"><img src="/yulduzbola/img/girl.jpg" alt="" loading="lazy"></figure>
+    </div>
+    <div class="badges" id="badges"><button class="badge"><span class="b-front"><i>👣</i></span><span class="b-back"><b>Birinchi qadam</b><small>Birinchi vazifani bajaring</small></span></button><button class="badge"><span class="b-front"><i>🧹</i></span><span class="b-back"><b>Tozalik qahramoni</b><small>3 ta tozalash vazifasini bajaring</small></span></button><button class="badge"><span class="b-front"><i>🍽️</i></span><span class="b-back"><b>Oshxona yordamchisi</b><small>Idishni 3 marta yuvish</small></span></button><button class="badge"><span class="b-front"><i>🌱</i></span><span class="b-back"><b>Bog' sevari</b><small>O'simliklarga 3 marta suv quyish</small></span></button><button class="badge"><span class="b-front"><i>📦</i></span><span class="b-back"><b>Tartib ustasi</b><small>3 ta tartib vazifasini bajaring</small></span></button><button class="badge"><span class="b-front"><i>🦸</i></span><span class="b-back"><b>Super yordamchi</b><small>Jami 10 ta vazifani bajaring</small></span></button><button class="badge"><span class="b-front"><i>📅</i></span><span class="b-back"><b>7 kunlik yordamchi</b><small>7 kun ketma-ket faol bo'ling</small></span></button><button class="badge"><span class="b-front"><i>🥉</i></span><span class="b-back"><b>10 yulduz</b><small>10 ta yulduz to'plang</small></span></button><button class="badge"><span class="b-front"><i>🥈</i></span><span class="b-back"><b>25 yulduz</b><small>25 ta yulduz to'plang</small></span></button><button class="badge"><span class="b-front"><i>🥇</i></span><span class="b-back"><b>Oltin daraja</b><small>50 ta yulduz to'plang</small></span></button><button class="badge"><span class="b-front"><i>💎</i></span><span class="b-back"><b>Olmos daraja</b><small>100 ta yulduz to'plang</small></span></button><button class="badge"><span class="b-front"><i>🔥</i></span><span class="b-back"><b>3 kun yondi</b><small>3 kun ketma-ket bajaring</small></span></button><button class="badge"><span class="b-front"><i>🔥🔥</i></span><span class="b-back"><b>7 kun yondi</b><small>7 kun ketma-ket bajaring</small></span></button><button class="badge"><span class="b-front"><i>⚡</i></span><span class="b-back"><b>Chaqmoq!</b><small>14 kun ketma-ket bajaring</small></span></button><button class="badge"><span class="b-front"><i>💨</i></span><span class="b-back"><b>Tezlik yulduzi</b><small>3 ta vazifani tez bajaring</small></span></button><button class="badge"><span class="b-front"><i>📷</i></span><span class="b-back"><b>Fotogrof</b><small>3 ta vazifani surat bilan bajaring</small></span></button></div>
+    <h3 class="ranks-title">Yulduz ko'paygan sari daraja o'sadi</h3>
+    <div class="ranks" id="ranks"><div class="rank" data-at="0"><i>⭐</i><b>Yangi</b><small>0+ ⭐</small></div><span class="rank-line"></span><div class="rank" data-at="10"><i>🥉</i><b>Bronza</b><small>10+ ⭐</small></div><span class="rank-line"></span><div class="rank" data-at="25"><i>🥈</i><b>Kumush</b><small>25+ ⭐</small></div><span class="rank-line"></span><div class="rank" data-at="50"><i>🥇</i><b>Oltin</b><small>50+ ⭐</small></div><span class="rank-line"></span><div class="rank" data-at="100"><i>💎</i><b>Olmos</b><small>100+ ⭐</small></div></div>
+    <div class="feat3 dark">
+      <div class="feat reveal"><span>🔥</span><h3>Ketma-ket kunlar</h3><p>Har kuni bitta vazifa — va olov o'chmaydi.</p></div>
+      <div class="feat reveal"><span>🏆</span><h3>Oila reytingi</h3><p>Shohsupa, hafta chempioni va bugungi qahramonlar.</p></div>
+      <div class="feat reveal"><span>🚀</span><h3>10 ta daraja</h3><p>Har bir yulduz 10 tajriba balli beradi.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="rewards sunset" id="rewards">
+  <div class="wrap two">
+    <div>
+      <p class="kicker">Sovg'alar</p>
+      <h2>Yulduzlar haqiqiy quvonchga aylanadi.</h2>
+      <p class="lead">Sovg'alarni ota-ona belgilaydi: muzqaymoq, kino, o'yin vaqti — nima desangiz. Shu sahifada yig'gan yulduzlaringizni sarflab ko'ring.</p>
+      <div class="shop" id="shop"><div class="reward" data-cost="15"><i>🍦</i><b>Muzqaymoq</b><strong>⭐ 15</strong><button></button></div><div class="reward" data-cost="20"><i>🎮</i><b>O'yin vaqti</b><strong>⭐ 20</strong><button></button></div><div class="reward" data-cost="25"><i>🍕</i><b>Maxsus kechki ovqat</b><strong>⭐ 25</strong><button></button></div><div class="reward" data-cost="30"><i>🎬</i><b>Kino tomosha</b><strong>⭐ 30</strong><button></button></div></div>
+      <p class="fine light">Yulduz yetmayaptimi? Sahifadagi yulduzlarni tuting, supuring, nishonlarni oching.</p>
+    </div>
+    <div class="rew-photo">
+      <figure class="photo tilt-r"><img src="/yulduzbola/img/teen.jpg" alt="" loading="lazy"></figure>
+      <div class="phone sm over"><div class="phone-body"><div class="phone-screen"><img src="/yulduzbola/img/app/rewards-uz.webp" alt="" loading="lazy" width="780" height="1824"></div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="facts cream" id="facts">
+  <div class="wrap">
+    <p class="kicker">Loyiha holati</p>
+    <h2>Rostini aytamiz</h2>
+    <p class="lead">YulduzBola — yosh loyiha. Nima tayyor, nima sinovda va nima hali yo'q — hammasi shu yerda.</p>
+    <div class="fact-cols">
+      <div class="fact ok reveal"><h3><i>✓</i>Bugun ishlaydi</h3><ul><li>8 vazifa, 16 nishon, sovg'alar do'koni, oila reytingi</li><li>Ota-ona paneli: tekshirish, bonus, o'z vazifa va sovg'alar</li><li>Uch til: o'zbek, rus, ingliz</li><li>Ro'yxatdan o'tish, reklama va server yo'q — ma'lumot telefonda qoladi</li></ul></div>
+      <div class="fact test reveal"><h3><i>◐</i>Sinovda</h3><ul><li>Android ilovasi yig'ilgan (22 MB). Barcha 10 ekran avtomatik testdan o'tadi, lekin haqiqiy telefonlarda hali keng sinalmagan.</li><li>Ba'zi yozuvlar hozircha faqat o'zbek tilida</li></ul></div>
+      <div class="fact no reveal"><h3><i>○</i>Hali yo'q</h3><ul><li>Google Play'da yo'q</li><li>iPhone versiyasi yo'q</li><li>Telefonlar orasida sinxronlash va bildirishnomalar yo'q: oila bitta qurilmadan foydalanadi</li></ul></div>
+    </div>
+    <div class="numbers">
+      <div><b>8</b><span>tayyor vazifa</span></div><div><b>16</b><span>nishon</span></div><div><b>3</b><span>til</span></div><div><b>3–14</b><span>yosh</span></div><div><b>0</b><span>akkaunt va reklama</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="downloads night" id="downloads">
+  <div class="wrap two">
+    <div>
+      <p class="kicker">Yuklab olish</p>
+      <h2>Taqdimotni yuklab oling</h2>
+      <p class="lead">Butun loyiha 11 slaydda, uch tilda.</p>
+      <div class="dl-list">
+        <div class="dl main"><b>O'zbek</b>
+          <a class="btn btn-gold sm" href="/yulduzbola/downloads/yulduzbola-uz.pdf" download>⬇ To'liq PDF</a>
+          <a class="btn btn-ghost sm" href="/yulduzbola/downloads/yulduzbola-uz-light.pdf" download>⬇ Yengil PDF (5 MB dan kichik)</a></div>
+        <div class="dl"><b>Русский</b>
+          <a class="btn btn-ghost sm" href="/yulduzbola/downloads/yulduzbola-ru.pdf" download>⬇ To'liq PDF</a>
+          <a class="btn btn-ghost sm" href="/yulduzbola/downloads/yulduzbola-ru-light.pdf" download>⬇ Yengil PDF (5 MB dan kichik)</a></div>
+        <div class="dl"><b>English</b>
+          <a class="btn btn-ghost sm" href="/yulduzbola/downloads/yulduzbola-en.pdf" download>⬇ To'liq PDF</a>
+          <a class="btn btn-ghost sm" href="/yulduzbola/downloads/yulduzbola-en-light.pdf" download>⬇ Yengil PDF (5 MB dan kichik)</a></div>
+      </div>
+      
+    </div>
+    <a class="deck-thumb" href="/yulduzbola/downloads/yulduzbola-uz.pdf" target="_blank" rel="noopener"><img src="/yulduzbola/img/deck-uz.jpg" alt="Taqdimotni yuklab oling" loading="lazy"></a>
+  </div>
+</section>
+
+<section class="final" id="final">
+  <img class="final-bg" src="/yulduzbola/img/night.jpg" alt="" loading="lazy">
+  <div class="final-shade"></div>
+  <div class="final-in">
+    <h2>Bugun kechqurun yulduzlaringizni sanang.</h2>
+    <p class="lead">Toza uy, g'ururlangan bola, xotirjam ota-ona.</p>
+    <p class="hand fin-count" id="finCount"></p>
+    <a class="btn btn-gold" href="#demo">▶ Hoziroq sinab ko'ring</a>
+    
+  </div>
+</section>
+</main>
+
+<footer class="foot"><span>⭐ YulduzBola · 2026</span><span>Suratlardagi odamlar sun'iy intellekt yordamida yaratilgan. Ilova ekranlari — haqiqiy.</span></footer>
+<div class="toast" id="toast" hidden></div>
+<script>window.YB={"lang":"uz","base":"/yulduzbola/","t":{"sweep_done":"Toza! +3 yulduz","sweep_hint":"Meni supuring!","sweep_progress":"Tozalandi","age_avail":"Ochiq vazifalar: {n} / 8","rew_need":"Yana {n} ⭐ kerak","rew_buy":"Olish","rew_bought":"So'rov yuborildi! Ilovada uni ota-ona tasdiqlaydi.","fin_collected":"Siz bu sahifada {n} ta yulduz yig'dingiz.","calc_redo":"Yulduz berilmaydi. Vazifa bolaga izohingiz bilan qaytadi: «Yana bir oz harakat qiling!»","g1":"3–6 yosh: katta tugmalar, kam matn","g2":"7–10 yosh: rasmli kartochkalar","g3":"11–14 yosh: jiddiyroq ranglar"},"tasks":[{"id":"sweep","key":"taskSweepTitle","emoji":"🧹","stars":3,"time":15,"min":4,"max":14,"color":"#FF6B35","name":"Polni supurish"},{"id":"dishes","key":"taskDishesTitle","emoji":"🍽️","stars":4,"time":20,"min":7,"max":14,"color":"#4D96FF","name":"Idish yuvish"},{"id":"bed","key":"taskBedTitle","emoji":"🛏️","stars":2,"time":10,"min":4,"max":14,"color":"#845EC2","name":"To'shak yig'ish"},{"id":"plants","key":"taskPlantsTitle","emoji":"🌿","stars":2,"time":10,"min":3,"max":14,"color":"#3DBE6C","name":"O'simliklarni sug'orish"},{"id":"trash","key":"taskTrashTitle","emoji":"🗑️","stars":3,"time":10,"min":6,"max":14,"color":"#2BB5AC","name":"Axlat chiqarish"},{"id":"toys","key":"taskToysTitle","emoji":"🧸","stars":2,"time":15,"min":3,"max":10,"color":"#F0679A","name":"O'yinchoqlarni yig'ish"},{"id":"vacuum","key":"taskVacuumTitle","emoji":"🌀","stars":4,"time":25,"min":8,"max":14,"color":"#E0A800","name":"Changyutgich tortish"},{"id":"laundry","key":"taskLaundryTitle","emoji":"👕","stars":4,"time":20,"min":8,"max":14,"color":"#FF6B35","name":"Kiyimlarni yig'ish"}],"ranks":[0,10,25,50,100]};</script>
+<script src="/yulduzbola/app.js" defer></script>
+</body>
+</html>

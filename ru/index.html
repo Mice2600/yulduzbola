@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YulduzBola — домашние дела превращаются в игру со звёздами</title>
+<meta name="description" content="Игра про домашние дела для детей: ребёнок выполняет задание, родитель проверяет, звёзды превращаются в награды. Android, 3–14 лет.">
+<link rel="canonical" href="https://mice2600.github.io/yulduzbola/ru/">
+<link rel="alternate" hreflang="uz" href="https://mice2600.github.io/yulduzbola/">
+<link rel="alternate" hreflang="ru" href="https://mice2600.github.io/yulduzbola/ru/">
+<link rel="alternate" hreflang="en" href="https://mice2600.github.io/yulduzbola/en/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="YulduzBola — домашние дела превращаются в игру со звёздами">
+<meta property="og:description" content="Игра про домашние дела для детей: ребёнок выполняет задание, родитель проверяет, звёзды превращаются в награды. Android, 3–14 лет.">
+<meta property="og:image" content="https://mice2600.github.io/yulduzbola/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#160D3A">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⭐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Nunito:wght@500;700;800&family=Rubik:wght@600;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/yulduzbola/style.css">
+</head>
+<body>
+<header class="nav" id="nav">
+  <a class="logo" href="#top"><span class="logo-star">⭐</span>YulduzBola</a>
+  <nav class="nav-links">
+    <a href="#demo">Попробовать</a><a href="#parents">Родителям</a><a href="#kids">Детям</a><a href="#facts">Статус</a><a href="#downloads">PDF</a>
+  </nav>
+  <div class="nav-right">
+    <div class="wallet" id="wallet" title="Ваши звёзды" aria-label="Ваши звёзды"><span class="wallet-star">⭐</span><b id="walletN">0</b></div>
+    <div class="langs"><a href="/yulduzbola/"  lang="uz" title="O'zbek">UZ</a><a href="/yulduzbola/ru/" class="on" aria-current="true" lang="ru" title="Русский">RU</a><a href="/yulduzbola/en/"  lang="en" title="English">EN</a></div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <picture class="hero-bg"><source media="(max-width: 760px)" srcset="/yulduzbola/img/hero-m.jpg"><img src="/yulduzbola/img/hero.jpg" alt="" fetchpriority="high"></picture>
+  <div class="hero-shade"></div>
+  <div class="hero-stars" id="heroStars" aria-hidden="true"></div>
+  <div class="hero-in">
+    <p class="kicker">Семейная игра для Android</p>
+    <h1>Каждое дело по дому — <em>звезда.</em></h1>
+    <p class="lead">YulduzBola превращает домашние дела в игру: ребёнок выполняет задание, родитель проверяет, а звёзды становятся настоящей наградой.</p>
+    <div class="cta-row">
+      <a class="btn btn-gold" href="#demo">▶ Попробовать сейчас</a>
+      <a class="btn btn-ghost" href="/yulduzbola/downloads/yulduzbola-ru.pdf" download>Презентация (PDF)</a>
+    </div>
+    <p class="status-chip"><i></i>Android · 3–14 лет · на этапе тестирования</p>
+  </div>
+  <p class="hand hero-hint">Нажимайте на летящие звёзды — собирайте их! <span>↗</span></p>
+</section>
+
+<section class="sweep night" id="sweep">
+  <div class="wrap two">
+    <div>
+      <p class="kicker">Игра начинается здесь</p>
+      <h2>Сначала подметите сами</h2>
+      <p class="lead">Ведите метлой по картинке и уберите пыль. За чистую работу — звёзды.</p>
+      <div class="sweep-meter"><span>Убрано</span><div class="bar"><i id="sweepBar"></i></div><b id="sweepPct">0%</b></div>
+      <button class="btn btn-ghost sm" id="sweepAgain" hidden>↻ Ещё раз</button>
+    </div>
+    <div class="sweep-card" id="sweepCard">
+      <img src="/yulduzbola/img/night.jpg" alt="" loading="lazy">
+      <canvas id="sweepCanvas"></canvas>
+      <div class="broom" id="broom" aria-hidden="true">🧹</div>
+      <div class="sweep-done" id="sweepDone" hidden>Чисто! +3 звезды</div>
+    </div>
+  </div>
+</section>
+
+<section class="how cream" id="how">
+  <div class="wrap">
+    <p class="kicker">Как это работает</p>
+    <h2>Четыре шага — и дома чисто</h2>
+    <ol class="steps">
+      <li class="step reveal">
+        <div class="step-shot"><div class="phone crop"><div class="phone-body"><div class="phone-screen"><img src="/yulduzbola/img/app/tasks-ru.webp" alt="Выбирает задание" loading="lazy" width="780" height="1824"></div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i></div></div><span class="step-n">1</span></div>
+        <h3>Выбирает задание</h3><p>8 готовых заданий по возрасту: от подметания до стирки. Родители могут добавить свои.</p></li>
+      <li class="step reveal">
+        <div class="step-shot"><div class="phone crop"><div class="phone-body"><div class="phone-screen"><img src="/yulduzbola/img/app/task-ru.webp" alt="Выполняет на время" loading="lazy" width="780" height="1824"></div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i></div></div><span class="step-n">2</span></div>
+        <h3>Выполняет на время</h3><p>Идёт таймер. Ребёнок заканчивает дело, делает фото и отмечает, как всё прошло.</p></li>
+      <li class="step reveal">
+        <div class="step-shot"><div class="phone crop"><div class="phone-body"><div class="phone-screen"><img src="/yulduzbola/img/app/approval-ru.webp" alt="Родитель проверяет" loading="lazy" width="780" height="1824"></div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i></div></div><span class="step-n">3</span></div>
+        <h3>Родитель проверяет</h3><p>Качество оцениваете вы: за отличную работу — бонус, а недоделанное вернётся с добрым комментарием.</p></li>
+      <li class="step reveal">
+        <div class="step-shot"><div class="phone crop"><div class="phone-body"><div class="phone-screen"><img src="/yulduzbola/img/app/approved-ru.webp" alt="Звёзды становятся наградой" loading="lazy" width="780" height="1824"></div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i></div></div><span class="step-n">4</span></div>
+        <h3>Звёзды становятся наградой</h3><p>Звёзды копятся, значки открываются, и ребёнок просит награду, которую выбрал сам.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="demo night" id="demo">
+  <div class="wrap two">
+    <div class="demo-copy">
+      <p class="kicker">Живое демо</p>
+      <h2>Это не картинка. Это само приложение.</h2>
+      <p class="lead">Внутри телефона работает настоящая YulduzBola — тот же код, собранный для браузера. Азиз, Малика и Жасур уже ждут.</p>
+      <ul class="tips">
+        <li><span>🧒</span><p><b>Как ребёнок:</b> вы — Азиз. Откройте задания и начните одно.</p></li>
+        <li><span>🔑</span><p><b>Как родитель:</b> нажмите «Вход для родителей». PIN-код — 1234.</p></li>
+        <li><span>⭐</span><p><b>Два задания</b> ждут проверки. Раздайте звёзды сами.</p></li>
+      </ul>
+      <div class="cta-row">
+        <button class="btn btn-ghost sm" id="demoReset">↻ Начать демо заново</button>
+        <a class="btn btn-ghost sm" href="/yulduzbola/demo/?as=aziz&lang=ru#/home" target="_blank" rel="noopener">↗ Открыть в отдельном окне</a>
+      </div>
+      <p class="fine">Демо хранит данные в вашем браузере. Съёмка фото рассчитана на приложение для Android, в демо выбирается файл с картинкой.</p>
+    </div>
+    <div class="demo-stage">
+      <div class="phone live" id="demoPhone"><div class="phone-body">
+        <div class="phone-screen">
+          <img src="/yulduzbola/img/app/home-ru.webp" alt="" loading="lazy">
+          <button class="demo-play" id="demoPlay"><span>▶</span>Запустить приложение</button>
+        </div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section class="parents cream" id="parents">
+  <div class="wrap">
+    <div class="two">
+      <div>
+        <p class="kicker">Для родителей</p>
+        <h2>Звёзды даёт не приложение, <em>а вы.</em></h2>
+        <p class="lead">Нажать «готово» — ещё не значит получить звёзды. Каждое задание приходит к вам: со временем, фото и настроением ребёнка. Панель ниже считает по тем же правилам, что и приложение.</p>
+      </div>
+      <figure class="photo tilt-r"><img src="/yulduzbola/img/father.jpg" alt="" loading="lazy"></figure>
+    </div>
+    <div class="calc reveal" id="calc">
+      <div class="calc-controls">
+        <h3>Задание</h3>
+        <div class="chips" id="calcTasks"><button data-i="0" class="chip on" style="--c:#FF6B35">🧹 Подмести пол <b>3⭐</b></button><button data-i="1" class="chip" style="--c:#4D96FF">🍽️ Помыть посуду <b>4⭐</b></button><button data-i="2" class="chip" style="--c:#845EC2">🛏️ Застелить кровать <b>2⭐</b></button><button data-i="3" class="chip" style="--c:#3DBE6C">🌿 Полить растения <b>2⭐</b></button><button data-i="4" class="chip" style="--c:#2BB5AC">🗑️ Вынести мусор <b>3⭐</b></button><button data-i="5" class="chip" style="--c:#F0679A">🧸 Убрать игрушки <b>2⭐</b></button><button data-i="6" class="chip" style="--c:#E0A800">🌀 Пропылесосить <b>4⭐</b></button><button data-i="7" class="chip" style="--c:#FF6B35">👕 Сложить бельё <b>4⭐</b></button></div>
+        <h3>Качество</h3>
+        <div class="quals" id="calcQ">
+          <button data-q="amazing" style="--c:#3DBE6C">⭐⭐⭐ Отлично</button>
+          <button data-q="good" class="on" style="--c:#4D96FF">⭐⭐ Хорошо</button>
+          <button data-q="needs" style="--c:#E0A800">⭐ Надо постараться</button>
+          <button data-q="redo" style="--c:#FF6B35">🔄 Переделать</button>
+        </div>
+        <h3>Бонусные звёзды</h3>
+        <div class="chips" id="calcB">
+          <button data-b="2" class="chip" style="--c:#E0A800">+2 ⭐ за старание</button>
+          <button data-b="3" class="chip" style="--c:#E0A800">+3 ⭐ сделал сам</button>
+          <button data-b="5" class="chip" style="--c:#E0A800">+5 ⭐ помог другим</button>
+        </div>
+      </div>
+      <div class="calc-result" id="calcResult">
+        <div class="calc-lines">
+          <p><span>Основа</span><b id="cBase">+3 ⭐</b></p>
+          <p id="cQualRow"><span>Качество</span><b id="cQual">0</b></p>
+          <p id="cBonRow"><span>Бонус</span><b id="cBon">0</b></p>
+        </div>
+        <div class="calc-total"><span>Ребёнок получит</span><strong id="cTotal">⭐ 3</strong><em id="cXp" data-l="очков опыта (XP)">+30 очков опыта (XP)</em></div>
+        <p class="calc-redo" id="cRedo" hidden>Звёзд нет. Задание вернётся ребёнку с вашим комментарием: «Постарайся ещё немного!»</p>
+      </div>
+    </div>
+    <div class="feat3">
+      <div class="feat reveal"><span>🔐</span><h3>Под защитой PIN-кода</h3><p>Дети не могут начислить звёзды сами себе. PIN-код можно сменить.</p></div>
+      <div class="feat reveal"><span>✍️</span><h3>Свои задания и награды</h3><p>Задайте название, звёзды, время и возраст. Цену награды назначаете вы: от 5 до 100 звёзд.</p></div>
+      <div class="feat reveal"><span>📊</span><h3>Всё на одном экране</h3><p>Кто что начал, что ждёт проверки и сколько заданий принято сегодня.</p></div>
+    </div>
+    <div class="panel-shots">
+      <div class="phone sm tl"><div class="phone-body"><div class="phone-screen"><img src="/yulduzbola/img/app/pin-ru.webp" alt="" loading="lazy" width="780" height="1824"></div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i></div></div><div class="phone sm"><div class="phone-body"><div class="phone-screen"><img src="/yulduzbola/img/app/parent-ru.webp" alt="Панель родителя" loading="lazy" width="780" height="1824"></div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i></div></div><div class="phone sm tr"><div class="phone-body"><div class="phone-screen"><img src="/yulduzbola/img/app/approval-ru.webp" alt="" loading="lazy" width="780" height="1824"></div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ages lilac" id="ages">
+  <div class="wrap">
+    <p class="kicker">Растёт вместе с ребёнком</p>
+    <h2>От 3 до 14 лет — каждому по-своему.</h2>
+    <p class="lead">Двигайте возраст: меняются задания и вид экрана.</p>
+    <div class="age-ui">
+      <div class="age-left">
+        <label class="age-slider"><span>Возраст</span><output id="ageOut">8</output>
+          <input type="range" id="age" min="3" max="14" value="8" aria-label="Возраст"></label>
+        <p class="age-avail" id="ageAvail"></p>
+        <div class="age-tasks" id="ageTasks"><div class="atask" data-min="4" data-max="14" style="--c:#FF6B35">
+          <img src="/yulduzbola/img/tasks/sweep.webp" alt="" loading="lazy"><div><b>Подмести пол</b><small>3⭐ · 15 мин · 4–14 лет</small></div><i>🔒</i></div><div class="atask" data-min="7" data-max="14" style="--c:#4D96FF">
+          <img src="/yulduzbola/img/tasks/dishes.webp" alt="" loading="lazy"><div><b>Помыть посуду</b><small>4⭐ · 20 мин · 7–14 лет</small></div><i>🔒</i></div><div class="atask" data-min="4" data-max="14" style="--c:#845EC2">
+          <img src="/yulduzbola/img/tasks/bed.webp" alt="" loading="lazy"><div><b>Застелить кровать</b><small>2⭐ · 10 мин · 4–14 лет</small></div><i>🔒</i></div><div class="atask" data-min="3" data-max="14" style="--c:#3DBE6C">
+          <img src="/yulduzbola/img/tasks/plants.webp" alt="" loading="lazy"><div><b>Полить растения</b><small>2⭐ · 10 мин · 3–14 лет</small></div><i>🔒</i></div><div class="atask" data-min="6" data-max="14" style="--c:#2BB5AC">
+          <img src="/yulduzbola/img/tasks/trash.webp" alt="" loading="lazy"><div><b>Вынести мусор</b><small>3⭐ · 10 мин · 6–14 лет</small></div><i>🔒</i></div><div class="atask" data-min="3" data-max="10" style="--c:#F0679A">
+          <img src="/yulduzbola/img/tasks/toys.webp" alt="" loading="lazy"><div><b>Убрать игрушки</b><small>2⭐ · 15 мин · 3–10 лет</small></div><i>🔒</i></div><div class="atask" data-min="8" data-max="14" style="--c:#E0A800">
+          <img src="/yulduzbola/img/tasks/vacuum.webp" alt="" loading="lazy"><div><b>Пропылесосить</b><small>4⭐ · 25 мин · 8–14 лет</small></div><i>🔒</i></div><div class="atask" data-min="8" data-max="14" style="--c:#FF6B35">
+          <img src="/yulduzbola/img/tasks/laundry.webp" alt="" loading="lazy"><div><b>Сложить бельё</b><small>4⭐ · 20 мин · 8–14 лет</small></div><i>🔒</i></div></div>
+      </div>
+      <div class="age-right">
+        <div class="age-phones" id="agePhones" data-g="2">
+          <div class="phone g g1"><div class="phone-body"><div class="phone-screen"><img src="/yulduzbola/img/app/taskslittle-ru.webp" alt="3–6 лет: крупные кнопки, мало текста" loading="lazy" width="780" height="1824"></div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i></div></div><div class="phone g g2"><div class="phone-body"><div class="phone-screen"><img src="/yulduzbola/img/app/tasks-ru.webp" alt="7–10 лет: карточки с картинками" loading="lazy" width="780" height="1824"></div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i></div></div><div class="phone g g3"><div class="phone-body"><div class="phone-screen"><img src="/yulduzbola/img/app/hometeen-ru.webp" alt="11–14 лет: более взрослые цвета" loading="lazy" width="780" height="1824"></div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i></div></div>
+        </div>
+        <p class="hand age-cap" id="ageCap">7–10 лет: карточки с картинками</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="kids night" id="kids">
+  <div class="wrap">
+    <div class="two top">
+      <div>
+        <p class="kicker">Для детей</p>
+        <h2>16 значков. Соберёшь все?</h2>
+        <p class="lead">Нажми на значок — узнаешь, как его получить.</p>
+      </div>
+      <figure class="photo tilt-l small"><img src="/yulduzbola/img/girl.jpg" alt="" loading="lazy"></figure>
+    </div>
+    <div class="badges" id="badges"><button class="badge"><span class="b-front"><i>👣</i></span><span class="b-back"><b>Первый шаг</b><small>Выполни первое задание</small></span></button><button class="badge"><span class="b-front"><i>🧹</i></span><span class="b-back"><b>Герой чистоты</b><small>Выполни 3 задания по уборке</small></span></button><button class="badge"><span class="b-front"><i>🍽️</i></span><span class="b-back"><b>Помощник на кухне</b><small>Помой посуду 3 раза</small></span></button><button class="badge"><span class="b-front"><i>🌱</i></span><span class="b-back"><b>Любитель сада</b><small>Полей растения 3 раза</small></span></button><button class="badge"><span class="b-front"><i>📦</i></span><span class="b-back"><b>Мастер порядка</b><small>Выполни 3 задания на порядок</small></span></button><button class="badge"><span class="b-front"><i>🦸</i></span><span class="b-back"><b>Супер помощник</b><small>Выполни всего 10 заданий</small></span></button><button class="badge"><span class="b-front"><i>📅</i></span><span class="b-back"><b>7-дневный помощник</b><small>Будь активен 7 дней подряд</small></span></button><button class="badge"><span class="b-front"><i>🥉</i></span><span class="b-back"><b>10 звёзд</b><small>Набери 10 звёзд</small></span></button><button class="badge"><span class="b-front"><i>🥈</i></span><span class="b-back"><b>25 звёзд</b><small>Набери 25 звёзд</small></span></button><button class="badge"><span class="b-front"><i>🥇</i></span><span class="b-back"><b>Золотой уровень</b><small>Набери 50 звёзд</small></span></button><button class="badge"><span class="b-front"><i>💎</i></span><span class="b-back"><b>Алмазный уровень</b><small>Набери 100 звёзд</small></span></button><button class="badge"><span class="b-front"><i>🔥</i></span><span class="b-back"><b>Горишь 3 дня</b><small>Выполняй задания 3 дня подряд</small></span></button><button class="badge"><span class="b-front"><i>🔥🔥</i></span><span class="b-back"><b>Горишь 7 дней</b><small>Выполняй задания 7 дней подряд</small></span></button><button class="badge"><span class="b-front"><i>⚡</i></span><span class="b-back"><b>Молния!</b><small>Выполняй задания 14 дней подряд</small></span></button><button class="badge"><span class="b-front"><i>💨</i></span><span class="b-back"><b>Звезда скорости</b><small>Быстро выполни 3 задания</small></span></button><button class="badge"><span class="b-front"><i>📷</i></span><span class="b-back"><b>Фотограф</b><small>Отправь фото к 3 заданиям</small></span></button></div>
+    <h3 class="ranks-title">Чем больше звёзд, тем выше ранг</h3>
+    <div class="ranks" id="ranks"><div class="rank" data-at="0"><i>⭐</i><b>Новый</b><small>0+ ⭐</small></div><span class="rank-line"></span><div class="rank" data-at="10"><i>🥉</i><b>Бронза</b><small>10+ ⭐</small></div><span class="rank-line"></span><div class="rank" data-at="25"><i>🥈</i><b>Серебро</b><small>25+ ⭐</small></div><span class="rank-line"></span><div class="rank" data-at="50"><i>🥇</i><b>Золото</b><small>50+ ⭐</small></div><span class="rank-line"></span><div class="rank" data-at="100"><i>💎</i><b>Алмаз</b><small>100+ ⭐</small></div></div>
+    <div class="feat3 dark">
+      <div class="feat reveal"><span>🔥</span><h3>Дни подряд</h3><p>Одно задание каждый день — и огонёк не гаснет.</p></div>
+      <div class="feat reveal"><span>🏆</span><h3>Семейный рейтинг</h3><p>Пьедестал, чемпион недели и герои дня.</p></div>
+      <div class="feat reveal"><span>🚀</span><h3>10 уровней</h3><p>Каждая звезда даёт 10 очков опыта.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="rewards sunset" id="rewards">
+  <div class="wrap two">
+    <div>
+      <p class="kicker">Награды</p>
+      <h2>Звёзды превращаются в настоящую радость.</h2>
+      <p class="lead">Награды придумывают родители: мороженое, кино, время на игры — что угодно. Попробуйте потратить звёзды, собранные на этой странице.</p>
+      <div class="shop" id="shop"><div class="reward" data-cost="15"><i>🍦</i><b>Мороженое</b><strong>⭐ 15</strong><button></button></div><div class="reward" data-cost="20"><i>🎮</i><b>Время на игры</b><strong>⭐ 20</strong><button></button></div><div class="reward" data-cost="25"><i>🍕</i><b>Особенный ужин</b><strong>⭐ 25</strong><button></button></div><div class="reward" data-cost="30"><i>🎬</i><b>Вечер кино</b><strong>⭐ 30</strong><button></button></div></div>
+      <p class="fine light">Не хватает звёзд? Ловите звёзды на странице, подметайте, открывайте значки.</p>
+    </div>
+    <div class="rew-photo">
+      <figure class="photo tilt-r"><img src="/yulduzbola/img/teen.jpg" alt="" loading="lazy"></figure>
+      <div class="phone sm over"><div class="phone-body"><div class="phone-screen"><img src="/yulduzbola/img/app/rewards-ru.webp" alt="" loading="lazy" width="780" height="1824"></div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="facts cream" id="facts">
+  <div class="wrap">
+    <p class="kicker">Статус проекта</p>
+    <h2>Говорим честно</h2>
+    <p class="lead">YulduzBola — молодой проект. Что готово, что тестируется и чего пока нет — всё здесь.</p>
+    <div class="fact-cols">
+      <div class="fact ok reveal"><h3><i>✓</i>Работает сегодня</h3><ul><li>8 заданий, 16 значков, магазин наград, семейный рейтинг</li><li>Панель родителя: проверка, бонусы, свои задания и награды</li><li>Три языка: узбекский, русский, английский</li><li>Без регистрации, рекламы и сервера — данные остаются в телефоне</li></ul></div>
+      <div class="fact test reveal"><h3><i>◐</i>Тестируется</h3><ul><li>Приложение для Android собрано (22 МБ). Все 10 экранов проходят автоматический тест, но на реальных телефонах оно ещё широко не проверялось.</li><li>Некоторые надписи пока только на узбекском</li></ul></div>
+      <div class="fact no reveal"><h3><i>○</i>Пока нет</h3><ul><li>Нет в Google Play</li><li>Нет версии для iPhone</li><li>Нет синхронизации между телефонами и уведомлений: семья пользуется одним устройством</li></ul></div>
+    </div>
+    <div class="numbers">
+      <div><b>8</b><span>готовых заданий</span></div><div><b>16</b><span>значков</span></div><div><b>3</b><span>языка</span></div><div><b>3–14</b><span>лет</span></div><div><b>0</b><span>аккаунтов и рекламы</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="downloads night" id="downloads">
+  <div class="wrap two">
+    <div>
+      <p class="kicker">Скачать</p>
+      <h2>Скачайте презентацию</h2>
+      <p class="lead">Весь проект на 11 слайдах, на трёх языках.</p>
+      <div class="dl-list">
+        <div class="dl main"><b>Русский</b>
+          <a class="btn btn-gold sm" href="/yulduzbola/downloads/yulduzbola-ru.pdf" download>⬇ Полный PDF</a>
+          <a class="btn btn-ghost sm" href="/yulduzbola/downloads/yulduzbola-ru-light.pdf" download>⬇ Лёгкий PDF (меньше 5 МБ)</a></div>
+        <div class="dl"><b>O'zbek</b>
+          <a class="btn btn-ghost sm" href="/yulduzbola/downloads/yulduzbola-uz.pdf" download>⬇ Полный PDF</a>
+          <a class="btn btn-ghost sm" href="/yulduzbola/downloads/yulduzbola-uz-light.pdf" download>⬇ Лёгкий PDF (меньше 5 МБ)</a></div>
+        <div class="dl"><b>English</b>
+          <a class="btn btn-ghost sm" href="/yulduzbola/downloads/yulduzbola-en.pdf" download>⬇ Полный PDF</a>
+          <a class="btn btn-ghost sm" href="/yulduzbola/downloads/yulduzbola-en-light.pdf" download>⬇ Лёгкий PDF (меньше 5 МБ)</a></div>
+      </div>
+      
+    </div>
+    <a class="deck-thumb" href="/yulduzbola/downloads/yulduzbola-ru.pdf" target="_blank" rel="noopener"><img src="/yulduzbola/img/deck-ru.jpg" alt="Скачайте презентацию" loading="lazy"></a>
+  </div>
+</section>
+
+<section class="final" id="final">
+  <img class="final-bg" src="/yulduzbola/img/night.jpg" alt="" loading="lazy">
+  <div class="final-shade"></div>
+  <div class="final-in">
+    <h2>Сегодня вечером посчитайте свои звёзды.</h2>
+    <p class="lead">Чистый дом, гордый ребёнок, спокойные родители.</p>
+    <p class="hand fin-count" id="finCount"></p>
+    <a class="btn btn-gold" href="#demo">▶ Попробовать сейчас</a>
+    
+  </div>
+</section>
+</main>
+
+<footer class="foot"><span>⭐ YulduzBola · 2026</span><span>Люди на фотографиях созданы с помощью ИИ. Экраны приложения — настоящие.</span></footer>
+<div class="toast" id="toast" hidden></div>
+<script>window.YB={"lang":"ru","base":"/yulduzbola/","t":{"sweep_done":"Чисто! +3 звезды","sweep_hint":"Подмети меня!","sweep_progress":"Убрано","age_avail":"Доступно заданий: {n} из 8","rew_need":"Нужно ещё {n} ⭐","rew_buy":"Получить","rew_bought":"Запрос отправлен! В приложении его подтверждают родители.","fin_collected":"На этой странице вы собрали звёзд: {n}.","calc_redo":"Звёзд нет. Задание вернётся ребёнку с вашим комментарием: «Постарайся ещё немного!»","g1":"3–6 лет: крупные кнопки, мало текста","g2":"7–10 лет: карточки с картинками","g3":"11–14 лет: более взрослые цвета"},"tasks":[{"id":"sweep","key":"taskSweepTitle","emoji":"🧹","stars":3,"time":15,"min":4,"max":14,"color":"#FF6B35","name":"Подмести пол"},{"id":"dishes","key":"taskDishesTitle","emoji":"🍽️","stars":4,"time":20,"min":7,"max":14,"color":"#4D96FF","name":"Помыть посуду"},{"id":"bed","key":"taskBedTitle","emoji":"🛏️","stars":2,"time":10,"min":4,"max":14,"color":"#845EC2","name":"Застелить кровать"},{"id":"plants","key":"taskPlantsTitle","emoji":"🌿","stars":2,"time":10,"min":3,"max":14,"color":"#3DBE6C","name":"Полить растения"},{"id":"trash","key":"taskTrashTitle","emoji":"🗑️","stars":3,"time":10,"min":6,"max":14,"color":"#2BB5AC","name":"Вынести мусор"},{"id":"toys","key":"taskToysTitle","emoji":"🧸","stars":2,"time":15,"min":3,"max":10,"color":"#F0679A","name":"Убрать игрушки"},{"id":"vacuum","key":"taskVacuumTitle","emoji":"🌀","stars":4,"time":25,"min":8,"max":14,"color":"#E0A800","name":"Пропылесосить"},{"id":"laundry","key":"taskLaundryTitle","emoji":"👕","stars":4,"time":20,"min":8,"max":14,"color":"#FF6B35","name":"Сложить бельё"}],"ranks":[0,10,25,50,100]};</script>
+<script src="/yulduzbola/app.js" defer></script>
+</body>
+</html>
