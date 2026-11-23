@@ -14,7 +14,7 @@ export async function deck(lang) {
   const pageUrl = site.url + (lang === 'uz' ? '' : lang + '/');
   const qr = await QRCode.toString(pageUrl, { type: 'svg', margin: 1, errorCorrectionLevel: 'M', color: { dark: '#140b33', light: '#ffffff' } });
   const img = (n) => `${B}img/${n}`;
-  const ph = (n, cls = '') => `<div class="phone ${cls}"><div class="phone-screen"><img src="${B}img/app/${n}-${lang}.webp" alt=""></div></div>`;
+  const ph = (n, cls = '') => `<div class="phone ${cls}"><div class="phone-body"><div class="phone-screen"><img src="${B}img/app/${n}-${lang}.webp" alt=""></div><i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i></div></div>`;
   const strip = (s) => s.replace(/<\/?em>/g, '');
   const em = (s) => s; // titles keep their <em> accent
   const foot = (n) => `<a class="corner" href="${pageUrl}"><span>⭐</span>${shortUrl}</a><span class="num">${String(n).padStart(2, '0')} / 11</span>`;

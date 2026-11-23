@@ -52,10 +52,24 @@ em { font-style: normal; color: var(--gold); }
 .bubbles p:nth-child(2) { margin-left: 60px; border-radius: 34px 34px 8px 34px; background: #ffe9df; }
 .bubbles p:nth-child(3) { background: #efe7ff; }
 /* phones */
-.phone { --w: 330px; width: var(--w); aspect-ratio: 390 / 844; padding: calc(var(--w) * .03); border-radius: calc(var(--w) * .16); background: linear-gradient(145deg, #2b2440, #0d0920); box-shadow: 0 0 0 3px #4a4266 inset, 0 50px 80px rgba(13, 9, 32, .4); position: relative; flex: none; }
-.phone-screen { width: 100%; height: 100%; border-radius: calc(var(--w) * .13); overflow: hidden; background: #fff8ec; }
-.phone-screen img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
-.phone.crop { --w: 100%; aspect-ratio: 390 / 520; border-radius: 40px 40px 0 0; padding: 12px 12px 0; box-shadow: 0 0 0 3px #4a4266 inset; } .phone.crop .phone-screen { border-radius: 30px 30px 0 0; }
+/* phone frame: .phone sets the width, everything inside is sized from it (cqw), so corners stay round at any size */
+.phone { --w: 330px; width: var(--w); container-type: inline-size; position: relative; flex: none; }
+.phone-body { position: relative; padding: 2.6cqw; border-radius: 15cqw; background: linear-gradient(150deg, #2a2342, #0c0819 55%, #1b1530); box-shadow: 0 0 0 .55cqw #56507a, 0 0 0 1.1cqw #17112b, inset 0 0 0 .5cqw rgba(255, 255, 255, .08), 0 18cqw 26cqw -8cqw rgba(13, 9, 32, .5), 0 5cqw 9cqw rgba(13, 9, 32, .28); }
+.phone-body::before, .phone-body::after { content: ''; position: absolute; width: 1.1cqw; background: #2c2646; z-index: -1; }
+.phone-body::before { left: -1.9cqw; top: 46cqw; height: 13cqw; border-radius: 1cqw 0 0 1cqw; box-shadow: 0 17cqw 0 #2c2646; }
+.phone-body::after { right: -1.9cqw; top: 58cqw; height: 22cqw; border-radius: 0 1cqw 1cqw 0; }
+.phone-screen { position: relative; border-radius: 12.4cqw; overflow: hidden; background: #fffdf9; isolation: isolate; }
+.phone-screen img { width: 100%; height: auto; display: block; }
+.phone .island { position: absolute; z-index: 3; top: 4.9cqw; left: 50%; transform: translateX(-50%); width: 27cqw; height: 6.2cqw; border-radius: 99cqw; background: #0b0818; }
+.phone .sb { position: absolute; z-index: 3; top: 2.6cqw; left: 2.6cqw; right: 2.6cqw; height: 10.6cqw; display: flex; align-items: center; justify-content: space-between; padding: 0 9cqw 0 10.5cqw; font-style: normal; pointer-events: none; }
+.phone .sb b { font: 800 3.8cqw/1 'Nunito', system-ui, sans-serif; color: #1d1438; letter-spacing: .01em; }
+.phone .sb u { width: 16.5cqw; height: 3.5cqw; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 66 14' fill='%231d1438'%3E%3Crect y='9' width='3' height='5' rx='1'/%3E%3Crect x='5' y='6' width='3' height='8' rx='1'/%3E%3Crect x='10' y='3' width='3' height='11' rx='1'/%3E%3Crect x='15' width='3' height='14' rx='1'/%3E%3Cpath d='M31 2.6c3.2 0 6 1.3 8 3.4l-1.7 1.7C35.7 6 33.5 5 31 5s-4.7 1-6.3 2.7L23 6c2-2.1 4.8-3.4 8-3.4zm0 4.6c1.9 0 3.6.8 4.8 2l-1.7 1.7c-.8-.8-1.9-1.3-3.1-1.3s-2.3.5-3.1 1.3L26.2 9.2c1.2-1.2 2.9-2 4.8-2zm0 4.4 1.7 1.7L31 14l-1.7-.7z'/%3E%3Crect x='44.5' y='1.5' width='18' height='11' rx='3.5' fill='none' stroke='%231d1438' stroke-opacity='.4'/%3E%3Crect x='46.3' y='3.3' width='12' height='7.4' rx='2'/%3E%3Crect x='63.8' y='5' width='1.7' height='4' rx='.85' fill-opacity='.45'/%3E%3C/svg%3E") no-repeat center/contain; }
+.phone .homebar { position: absolute; z-index: 3; bottom: 4.3cqw; left: 50%; transform: translateX(-50%); width: 34cqw; height: 1.25cqw; border-radius: 9cqw; background: rgba(20, 11, 51, .32); pointer-events: none; }
+.phone.crop { --w: 100%; }
+.phone.crop .phone-body { border-radius: 15cqw 15cqw 0 0; padding-bottom: 0; box-shadow: 0 0 0 .55cqw #56507a, 0 0 0 1.1cqw #17112b, inset 0 0 0 .5cqw rgba(255, 255, 255, .08); }
+.phone.crop .phone-screen { border-radius: 12.4cqw 12.4cqw 0 0; aspect-ratio: 390 / 520; }
+.phone.crop .phone-screen img { height: 100%; object-fit: cover; object-position: top; }
+.phone.crop .homebar, .phone.crop .phone-body::before, .phone.crop .phone-body::after { display: none; }
 /* 3 steps */
 .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-top: 50px; }
 .step { background: #fff; border-radius: 36px; padding: 22px 22px 30px; box-shadow: 0 18px 50px rgba(29, 20, 56, .12); }

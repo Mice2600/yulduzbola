@@ -9,8 +9,9 @@ const B = site.base;
 export const langUrl = (l) => (l === 'uz' ? B : `${B}${l}/`);
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
 
+const phoneExtras = '<i class="island"></i><i class="sb"><b>9:41</b><u></u></i><i class="homebar"></i>';
 const phone = (name, lang, cls = '', alt = '') =>
-  `<div class="phone ${cls}"><div class="phone-screen"><img src="${B}img/app/${name}-${lang}.webp" alt="${esc(alt)}" loading="lazy" width="780" height="1688"></div></div>`;
+  `<div class="phone ${cls}"><div class="phone-body"><div class="phone-screen"><img src="${B}img/app/${name}-${lang}.webp" alt="${esc(alt)}" loading="lazy" width="780" height="1824"></div>${phoneExtras}</div></div>`;
 
 export function page(lang) {
   const t = T[lang], a = A[lang];
@@ -121,12 +122,12 @@ ${langs.map((l) => `<link rel="alternate" hreflang="${l}" href="${site.url}${l =
       <p class="fine">${t.demo_note}</p>
     </div>
     <div class="demo-stage">
-      <div class="phone live" id="demoPhone">
+      <div class="phone live" id="demoPhone"><div class="phone-body">
         <div class="phone-screen">
           <img src="${B}img/app/home-${lang}.webp" alt="" loading="lazy">
           <button class="demo-play" id="demoPlay"><span>▶</span>${t.demo_play}</button>
-        </div>
-      </div>
+        </div>${phoneExtras}
+      </div></div>
     </div>
   </div>
 </section>
